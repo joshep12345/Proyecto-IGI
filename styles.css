@@ -1,0 +1,460 @@
+/* ===== VARIABLES Y ESTILOS GLOBALES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primary: #1a1a1a;
+    --color-secondary: #d4af37;
+    --color-light: #f5f5f5;
+    --color-text: #333;
+    --color-border: #e0e0e0;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-text);
+    line-height: 1.6;
+    background-color: var(--color-light);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ===== HEADER Y NAVEGACIÓN ===== */
+.header {
+    background-color: var(--color-primary);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 28px;
+    color: white;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.logo .highlight {
+    color: var(--color-secondary);
+    font-style: italic;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.navbar a {
+    color: var(--color-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.navbar a:hover {
+    color: var(--color-secondary);
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--color-secondary);
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #2a2a2a 100%);
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.hero-content .description {
+    font-size: 16px;
+    color: #ddd;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===== BOTONES ===== */
+.btn-primary {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    padding: 15px 40px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary:hover {
+    background-color: #e6c200;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* ===== SECCIONES GENERALES ===== */
+.section-title {
+    font-size: 36px;
+    color: var(--color-primary);
+    margin-bottom: 50px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: var(--color-secondary);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ===== SECCIÓN SERVICIOS ===== */
+.servicios {
+    padding: 80px 20px;
+    background-color: white;
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.servicio-card {
+    background: white;
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.servicio-card:hover {
+    border-color: var(--color-secondary);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+    transform: translateY(-5px);
+}
+
+.servicio-card .icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.servicio-card h3 {
+    color: var(--color-primary);
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.servicio-card p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* ===== SECCIÓN EQUIPO ===== */
+.equipo {
+    padding: 80px 20px;
+    background-color: var(--color-light);
+}
+
+.equipo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.profesional-card {
+    background: white;
+    border-radius: 8px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.profesional-card:hover {
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 auto 20px;
+}
+
+.profesional-card h3 {
+    color: var(--color-primary);
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.especialidad {
+    color: var(--color-secondary);
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.descripcion {
+    color: #666;
+    font-size: 14px;
+}
+
+/* ===== SECCIÓN PRECIOS ===== */
+.precios {
+    padding: 80px 20px;
+    background-color: white;
+}
+
+.precios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.precio-card {
+    background: white;
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.precio-card.destacado {
+    border-color: var(--color-secondary);
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(212, 175, 55, 0.1));
+    transform: scale(1.05);
+}
+
+.precio-card h3 {
+    color: var(--color-primary);
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.precio {
+    font-size: 36px;
+    color: var(--color-secondary);
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.precio-card ul {
+    list-style: none;
+    text-align: left;
+}
+
+.precio-card ul li {
+    color: #666;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.precio-card ul li:last-child {
+    border-bottom: none;
+}
+
+/* ===== SECCIÓN CONTACTO ===== */
+.contacto {
+    padding: 80px 20px;
+    background-color: var(--color-light);
+}
+
+.contacto-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+.info-contacto h3,
+.formulario-contacto h3 {
+    color: var(--color-primary);
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.info-contacto p {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 16px;
+}
+
+.info-contacto a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.info-contacto a:hover {
+    text-decoration: underline;
+}
+
+.info-contacto ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.info-contacto ul li {
+    color: #666;
+    margin: 8px 0;
+}
+
+.formulario-contacto form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+    padding: 15px;
+    border: 2px solid var(--color-border);
+    border-radius: 5px;
+    font-family: var(--font-main);
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.formulario-contacto input:focus,
+.formulario-contacto textarea:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+.formulario-contacto button {
+    margin-top: 10px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background-color: var(--color-primary);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 3px solid var(--color-secondary);
+}
+
+.footer p {
+    margin: 10px 0;
+}
+
+.footer p:first-child {
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media (max-width: 768px) {
+    .navbar ul {
+        display: none;
+    }
+
+    .hero-content h2 {
+        font-size: 32px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .contacto-content {
+        grid-template-columns: 1fr;
+    }
+
+    .equipo-grid,
+    .servicios-grid,
+    .precios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .precio-card.destacado {
+        transform: scale(1);
+    }
+
+    .header .container {
+        justify-content: center;
+    }
+}
